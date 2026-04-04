@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UK-qualified electrician and FGAS-certified air conditioning specialist in Ibiza. English and Spanish speaking. Villas, apartments, commercial. Emergency call-outs 7 days.">
+<title>Ibiza Power &amp; Climate | Luxury AC &amp; Electrical Specialists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+        --navy:#0A1428; 
+        --blue:#1E3A8A; 
+        --sky:#38BDF8; 
+        --wa:#25D366;
+        --cr:#F8FAFC; 
+        --tx:#0F172A; 
+        --tm:#64748B; 
+        --bd:#E2E8F0; 
+        --sh:0 10px 40px -10px rgba(0,0,0,0.08)
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:#fff;color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    
+    /* Clean, Premium Header */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(0,0,0,0.05)}
+    .ni{max-width:1250px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:15px 5%}
+    
+    .lg{display:flex;align-items:center;text-decoration:none;}
+    .logo-img {height:90px; width:auto; object-fit: contain; mix-blend-mode: multiply;}
+    
+    .nw{display:flex;align-items:center;gap:8px;background:var(--wa);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:100px;text-decoration:none;transition:0.3s;box-shadow:0 4px 15px rgba(37,211,102,0.2)}
+    .nw:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.3)}
+
+    /* Cinematic Hero Section */
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;margin-top:90px;background:var(--navy)}
+    .hbg{position:absolute;inset:0;background-image:url('image_aee2d7.png');background-size:cover;background-position:center}
+    .hbg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(10,20,40,0.95) 0%, rgba(10,20,40,0.5) 100%)}
+    .hc{position:relative;z-index:2;max-width:1250px;margin:0 auto;width:100%;padding:60px 5%}
+    
+    .pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:100px;padding:8px 20px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:30px}
+    h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;color:#fff;letter-spacing:-.03em;margin-bottom:24px;max-width:850px}
+    h1 span{color:var(--sky)}
+    .hs{font-size:20px;color:rgba(255,255,255,0.8);font-weight:300;max-width:650px;line-height:1.6;margin-bottom:45px}
+    
+    .hero-ctas {display: flex; gap: 20px; flex-wrap: wrap;}
+    .btn-primary {background: var(--sky); color: var(--navy); padding: 18px 40px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s;}
+    .btn-primary:hover {background: #fff; transform: translateY(-2px);}
+    .btn-secondary {background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 18px 40px; border-radius: 100px; font-weight: 600; font-size: 16px; text-decoration: none; transition: 0.3s;}
+    .btn-secondary:hover {background: rgba(255,255,255,0.1); border-color: #fff;}
+
+    /* Premium Stats Bar */
+    .sts{display:flex;flex-wrap:wrap;gap:60px;margin-top:70px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+    .stn{font-size:24px;font-weight:700;color:#fff;margin-bottom:4px}
+    .stl{font-size:11px;color:rgba(255,255,255,0.5); text-transform: uppercase; font-weight: 500; letter-spacing: 1.5px;}
+
+    /* Core Services Grid - Sleek & Minimal */
+    .sec{padding:120px 5%;background:var(--cr)}
+    .si{max-width:1250px;margin:0 auto}
+    .tg{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:15px}
+    .tg::before{content:'';width:20px;height:1px;background:var(--sky);}
+    h2{font-size:42px;font-weight:700;color:var(--navy);margin-bottom:60px; letter-spacing: -1px;}
+    
+    .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+    .sc{background:#fff;border-radius:16px;padding:50px;transition: 0.4s ease; border: 1px solid var(--bd);}
+    .sc:hover{transform: translateY(-8px); box-shadow: var(--sh); border-color: var(--sky);}
+    .si2{font-size:32px; margin-bottom:25px; display: block;}
+    .sct{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:15px}
+    .scd{font-size:16px;color:var(--tm);line-height:1.7;font-weight:300}
+
+    /* Sector Specifics - Elegant Layout */
+    .sector-sec{padding:120px 5%; background: #fff;}
+    .sector-grid{max-width:1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;}
+    .sector-img{width: 100%; border-radius: 20px; overflow: hidden; box-shadow: var(--sh);}
+    .sector-img img{width: 100%; display: block;}
+    
+    .sector-content h3{font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 700; letter-spacing: -1px;}
+    .sector-content p{font-size: 17px; color: var(--tm); line-height: 1.8; margin-bottom: 40px; font-weight: 300;}
+    
+    .work-box{margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--sky);}
+    .work-box h4{font-size: 19px; color: var(--navy); margin-bottom: 8px; font-weight: 600;}
+    .work-box p{font-size: 15px; margin-bottom: 0; color: var(--tm); font-weight: 300; line-height: 1.6;}
+
+    /* Luxury Contact Block */
+    .con{background:var(--navy);padding:120px 5%;color:#fff}
+    .cin{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:90px;align-items:center}
+    
+    .cred-card{background: rgba(255,255,255,0.03); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);}
+    .cred-card h4{font-size: 22px; color: #fff; margin-bottom: 30px; font-weight: 600;}
+    .cred-list{list-style: none;}
+    .cred-list li{margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 300;}
+    .cred-list li::before{content: '✓'; color: var(--sky); font-size: 16px; font-weight: bold;}
+
+    footer{background:#050A14;padding:40px 5%;text-align:center;border-top:1px solid rgba(255,255,255,0.05)}
+    footer p{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing: 2px; text-transform: uppercase; font-weight: 500;}
+
+    @media(max-width:1000px){
+        .sector-grid, .cin{grid-template-columns:1fr; gap: 60px;}
+        .sts{gap: 40px;}
+        h1{font-size: 46px;}
+        .logo-img {height: 70px;}
+        .hero-ctas {flex-direction: column;}
+        .btn-primary, .btn-secondary {text-align: center; width: 100%;}
+    }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="ni">
+    <a class="lg" href="#">
+      <img src="logo.png" alt="Ibiza Power & Climate Logo" class="logo-img">
+    </a>
+    <div class="nr">
+      <a class="nw" href="https://wa.me/34000000000">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Contact WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hbg"></div>
+  <div class="hc">
+    <div class="pill">English &amp; Spanish Speaking Specialists</div>
+    <h1>Ibiza's Premier AC & Electrical Experts</h1>
+    <p class="hs">Delivering highly engineered climate control and electrical solutions. Precision service for luxury villas, residential apartments, and commercial premises across the island.</p>
+    
+    <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Book a Consultation</a>
+        <a href="tel:+34000000000" class="btn-secondary">7-Day Emergency Call-Outs</a>
+    </div>
+
+    <div class="sts">
+        <div class="st">
+            <div class="stn">Qualified</div>
+            <div class="stl">UK Electricians</div>
+        </div>
+        <div class="st">
+            <div class="stn">FGAS</div>
+            <div class="stl">Certified AC Engineers</div>
+        </div>
+        <div class="st">
+            <div class="stn">7 Days</div>
+            <div class="stl">Emergency Support</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="services">
+    <div class="si">
+        <div class="tg">Our Expertise</div>
+        <h2>Power &amp; Climate Solutions</h2>
+        <div class="sg">
+            <div class="sc">
+                <span class="si2">❄️</span>
+                <div class="sct">AC Installations</div>
+                <div class="scd">Precision design and installation of energy-efficient systems. We specialize in discreet ducted and multi-split retrofitting for luxury interiors.</div>
+            </div>
+            <div class="sc">
+                <span class="si2">⚡</span>
+                <div class="sct">Electrical Works</div>
+                <div class="scd">From full property rewires to smart home integrations. Executed seamlessly to UK City &amp; Guilds standards by qualified electricians.</div>
+            </div>
+            <div class="sc">
+                <span class="si2">🛠️</span>
+                <div class="sct">PPM Maintenance</div>
+                <div class="scd">Planned preventative maintenance. Protect your systems from Balearic salt-air corrosion and ensure uninterrupted luxury all summer.</div>
+            </div>
+            <div class="sc" style="background:var(--navy); border-color:var(--navy);">
+                <span class="si2">🚨</span>
+                <div class="sct" style="color:#fff;">7-Day Emergency</div>
+                <div class="scd" style="color:rgba(255,255,255,0.7);">Rapid-response diagnostics available 7 days a week. We prioritize commercial breakdowns and urgent residential faults to minimize downtime.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sector-sec">
+    <div class="sector-grid">
+        <div class="sector-content">
+            <div class="tg">Island Coverage</div>
+            <h3>Villas, Apartments &amp; Commercial</h3>
+            <p>Our bilingual team communicates clearly in English and Spanish, ensuring seamless coordination with property owners, project managers, and local authorities across Ibiza.</p>
+            
+            <div class="work-box">
+                <h4>Private Villas</h4>
+                <p>Complete climate infrastructure, smart home integration, and architectural lighting for traditional fincas and high-end modern estates.</p>
+            </div>
+            <div class="work-box">
+                <h4>Luxury Apartments</h4>
+                <p>Specialist AC retrofitting, fault-finding, and safe urban power upgrades for premium residences in Marina Botafoch and Ibiza Town.</p>
+            </div>
+            <div class="work-box">
+                <h4>Commercial Premises</h4>
+                <p>Reliable maintenance contracts and emergency electrical or refrigeration support for the island's premier restaurants, beach clubs, and retail units.</p>
+            </div>
+        </div>
+        <div class="sector-img">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Ibiza Luxury Property">
+        </div>
+    </div>
+</section>
+
+<section class="con" id="contact">
+    <div class="cin">
+        <div>
+            <div class="tg" style="color:var(--sky);">Get In Touch</div>
+            <h2 style="color: #fff; margin-bottom: 25px;">Contact Our Engineers</h2>
+            <p class="hs" style="color: rgba(255,255,255,0.7); max-width: 500px;">Resident on the island and available for scheduled works, bespoke project design, or 7-day emergency attendance across Ibiza.</p>
+            
+            <div style="margin-top: 40px;">
+                <a href="https://wa.me/34000000000" class="btn-primary" style="background: var(--wa); color: #fff; display: inline-flex; align-items: center; gap: 10px; border: none;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Message on WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <div class="cred-card">
+            <h4>Professional Credentials</h4>
+            <ul class="cred-list">
+                <li>UK-Qualified Electrician</li>
+                <li>FGAS-Certified AC Specialist</li>
+                <li>English and Spanish Speaking</li>
+                <li>7-Day Emergency Call-Outs</li>
+                <li>Fully Insured &amp; Compliant</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Ibiza Power &amp; Climate • Electrician &amp; AC Specialist • © 2026</p>
+</footer>
+
+</body>
+</html>

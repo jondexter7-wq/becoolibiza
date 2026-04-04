@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="UK-qualified electrician and FGAS-certified air conditioning specialist in Ibiza. English and Spanish speaking. Villas, apartments, commercial. Emergency call-outs 7 days.">
-<title>BE COOL IBIZA | Professional AC & Electrical Specialists</title>
+<title>Be Cool Ibiza | Professional AC & Electrical Specialists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -148,6 +148,82 @@
     .hstat-n span{color:var(--sky)}
     .hstat-l{font-size:12px;color:rgba(255,255,255,0.5);text-transform: uppercase;letter-spacing: 1px;font-weight:500;}
 
+    /* CREDENTIALS STRIP */
+    .credentials-strip {
+        background: #081121; /* Dark navy to match the screenshot */
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 24px 5%;
+    }
+    .credentials-inner {
+        max-width: 1250px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 35px;
+    }
+    .cred-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(255,255,255,0.4);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        flex-shrink: 0;
+    }
+    .cred-boxes {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .cred-box {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 10px 24px 10px 12px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    a.cred-box:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.2);
+    }
+    .cred-icon-wrap {
+        width: 48px;
+        height: 48px;
+        background: #fff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 6px;
+        flex-shrink: 0;
+    }
+    .cred-icon-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .cred-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cred-text strong {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 2px;
+        letter-spacing: -0.3px;
+    }
+    .cred-text span {
+        color: rgba(255,255,255,0.6);
+        font-size: 12px;
+        font-weight: 300;
+    }
+
     /* Sections */
     .section{padding:100px 5%}
     .section-inner{max-width:1250px;margin:0 auto}
@@ -234,8 +310,16 @@
     .float svg{width:22px;height:22px}
     @keyframes popin{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
     
+    @media(max-width:950px){
+        .credentials-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+    }
+    
     @media(max-width:768px){
-      .nr .lang-selector { display: none; } /* Hide toggle on very small screens to save space */
+      .nr .lang-selector { display: none; }
       .flbl{display:none}
       .float{padding:16px;border-radius:50%;bottom:20px;right:20px;}
     }
@@ -311,6 +395,66 @@
       <div class="hstat"><div class="hstat-n">F<span>GAS</span></div><div class="hstat-l"><span class="en">Certified AC Engineers</span><span class="es">Técnicos Certificados</span></div></div>
       <div class="hstat"><div class="hstat-n">&lt;1<span>hr</span></div><div class="hstat-l"><span class="en">WhatsApp Response</span><span class="es">Respuesta Rápida</span></div></div>
       <div class="hstat"><div class="hstat-n">All<span> Ibiza</span></div><div class="hstat-l"><span class="en">Full Island Coverage</span><span class="es">Cobertura Total</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="credentials-strip">
+  <div class="credentials-inner">
+    <div class="cred-label">
+      <span class="en">VERIFIED CREDENTIALS</span>
+      <span class="es">CREDENCIALES VERIFICADAS</span>
+    </div>
+    <div class="cred-boxes">
+      
+      <a href="https://www.fgasregister.com/" target="_blank" rel="noopener" class="cred-box">
+        <div class="cred-icon-wrap">
+          <img src="f-gas-sticker-resized.jpg" alt="F-Gas Register">
+        </div>
+        <div class="cred-text">
+          <strong>
+            <span class="en">Certified F-Gas Engineer</span>
+            <span class="es">Ingeniero F-Gas Certificado</span>
+          </strong>
+          <span>
+            <span class="en">Verify on Fgasregister.com</span>
+            <span class="es">Verificar en Fgasregister.com</span>
+          </span>
+        </div>
+      </a>
+
+      <div class="cred-box">
+        <div class="cred-icon-wrap">
+          <img src="Screenshot 2026-04-02 095130.png" alt="City & Guilds">
+        </div>
+        <div class="cred-text">
+          <strong>
+            <span class="en">City &amp; Guilds Qualified</span>
+            <span class="es">Cualificado por City &amp; Guilds</span>
+          </strong>
+          <span>
+            <span class="en">UK's leading body</span>
+            <span class="es">Organismo líder en UK</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="cred-box">
+        <div class="cred-icon-wrap">
+          <img src="ecs-logo.jpg" alt="ECS">
+        </div>
+        <div class="cred-text">
+          <strong>
+            <span class="en">ECS Certified</span>
+            <span class="es">Certificado ECS</span>
+          </strong>
+          <span>
+            <span class="en">Technician Grade Level</span>
+            <span class="es">Nivel Grado Técnico</span>
+          </span>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

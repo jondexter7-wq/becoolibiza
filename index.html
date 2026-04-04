@@ -4,38 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="UK-qualified electrician and FGAS-certified air conditioning specialist in Ibiza. English and Spanish speaking. Villas, apartments, commercial. Emergency call-outs 7 days.">
-<title>Ibiza Power &amp; Climate | Luxury AC &amp; Electrical Specialists</title>
+<title>BE COOL IBIZA | Professional AC & Electrical Specialists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
+        /* Premium Color Palette */
         --navy:#0A1428; 
         --blue:#1E3A8A; 
         --sky:#38BDF8; 
+        --sky-light: rgba(56, 189, 248, 0.15);
         --wa:#25D366;
+        --wa-dark:#1DAB56;
         --cr:#F8FAFC; 
         --tx:#0F172A; 
         --tm:#64748B; 
         --bd:#E2E8F0; 
-        --sh:0 10px 40px -10px rgba(0,0,0,0.08)
+        --r-lg: 16px;
+        --sh:0 10px 40px -10px rgba(0,0,0,0.08);
     }
     html{scroll-behavior:smooth}
     body{font-family:'Outfit',sans-serif;background:#fff;color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
     
-    /* Clean, Premium Header */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(0,0,0,0.05)}
-    .ni{max-width:1250px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:15px 5%}
+    /* LANGUAGE TOGGLE LOGIC */
+    .lang-en .es { display: none !important; }
+    .lang-es .en { display: none !important; }
+    
+    /* Sleek Real-Image Language Dropdown */
+    .lang-selector {
+        position: relative;
+        margin-right: 15px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+        user-select: none;
+    }
+    .lang-current {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding: 8px 16px;
+        border-radius: 100px;
+        border: 1px solid var(--bd);
+        transition: 0.3s;
+        background: transparent;
+    }
+    .lang-current:hover {
+        background: var(--cr);
+        border-color: var(--tm);
+    }
+    .flag-icon {
+        width: 22px;
+        height: 16px;
+        object-fit: cover;
+        border-radius: 3px;
+        display: block;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .lang-current svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.3s;
+    }
+    .lang-selector.open .lang-current svg {
+        transform: rotate(180deg);
+    }
+    .lang-options {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background: #fff;
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        min-width: 135px;
+        z-index: 300;
+    }
+    .lang-selector.open .lang-options {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+    .lang-options div {
+        padding: 12px 18px;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+    }
+    .lang-options div:hover {
+        background: var(--cr);
+        color: var(--sky);
+    }
+    
+    /* Clean Premium Header */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.05)}
+    .ni{max-width:1250px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 5%}
     
     .lg{display:flex;align-items:center;text-decoration:none;}
-    .logo-img {height:90px; width:auto; object-fit: contain; mix-blend-mode: multiply;}
+    .logo-img {
+        height: 130px; 
+        width: auto; 
+        object-fit: contain; 
+        transform: scale(1.4); 
+        transform-origin: left center;
+    }
     
+    .nr {display: flex; align-items: center;}
     .nw{display:flex;align-items:center;gap:8px;background:var(--wa);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:100px;text-decoration:none;transition:0.3s;box-shadow:0 4px 15px rgba(37,211,102,0.2)}
     .nw:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.3)}
 
-    /* Cinematic Hero Section */
-    .hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;margin-top:90px;background:var(--navy)}
+    /* Cinematic Hero */
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;margin-top:80px;background:var(--navy)}
     .hbg{position:absolute;inset:0;background-image:url('image_aee2d7.png');background-size:cover;background-position:center}
     .hbg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, rgba(10,20,40,0.95) 0%, rgba(10,20,40,0.5) 100%)}
     .hc{position:relative;z-index:2;max-width:1250px;margin:0 auto;width:100%;padding:60px 5%}
@@ -45,68 +135,120 @@
     h1 span{color:var(--sky)}
     .hs{font-size:20px;color:rgba(255,255,255,0.8);font-weight:300;max-width:650px;line-height:1.6;margin-bottom:45px}
     
-    .hero-ctas {display: flex; gap: 20px; flex-wrap: wrap;}
-    .btn-primary {background: var(--sky); color: var(--navy); padding: 18px 40px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s;}
+    .hero-ctas {display: flex; gap: 15px; flex-wrap: wrap;}
+    .btn-primary {background: var(--sky); color: var(--navy); padding: 16px 35px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s;}
     .btn-primary:hover {background: #fff; transform: translateY(-2px);}
-    .btn-secondary {background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 18px 40px; border-radius: 100px; font-weight: 600; font-size: 16px; text-decoration: none; transition: 0.3s;}
+    .btn-secondary {background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 35px; border-radius: 100px; font-weight: 600; font-size: 16px; text-decoration: none; transition: 0.3s;}
     .btn-secondary:hover {background: rgba(255,255,255,0.1); border-color: #fff;}
 
-    /* Premium Stats Bar */
-    .sts{display:flex;flex-wrap:wrap;gap:60px;margin-top:70px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
-    .stn{font-size:24px;font-weight:700;color:#fff;margin-bottom:4px}
-    .stl{font-size:11px;color:rgba(255,255,255,0.5); text-transform: uppercase; font-weight: 500; letter-spacing: 1.5px;}
+    .hero-stats{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.15);padding-top:35px;margin-top:50px;}
+    .hstat{flex:1;min-width:130px;padding-right:28px;margin-right:28px;border-right:1px solid rgba(255,255,255,0.15)}
+    .hstat:last-child{border-right:none;margin-right:0;padding-right:0}
+    .hstat-n{font-size:24px;font-weight:700;color:#fff;margin-bottom:4px}
+    .hstat-n span{color:var(--sky)}
+    .hstat-l{font-size:12px;color:rgba(255,255,255,0.5);text-transform: uppercase;letter-spacing: 1px;font-weight:500;}
 
-    /* Core Services Grid - Sleek & Minimal */
-    .sec{padding:120px 5%;background:var(--cr)}
-    .si{max-width:1250px;margin:0 auto}
-    .tg{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:15px}
-    .tg::before{content:'';width:20px;height:1px;background:var(--sky);}
-    h2{font-size:42px;font-weight:700;color:var(--navy);margin-bottom:60px; letter-spacing: -1px;}
+    /* Sections */
+    .section{padding:100px 5%}
+    .section-inner{max-width:1250px;margin:0 auto}
+    .stag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:12px}
+    .stag::before{content:'';width:18px;height:1px;background:var(--sky)}
+    h2{font-size:clamp(32px,4vw,44px);font-weight:700;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+    .slead{font-size:17px;color:var(--tm);font-weight:300;line-height:1.7;max-width:600px;margin-bottom:50px}
+
+    /* Specific Services Grid */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .scard{background:var(--white);border:1px solid var(--bd);border-radius:var(--r-lg);padding:35px;transition:border-color .3s,box-shadow .3s,transform .3s}
+    .scard:hover{border-color:var(--sky);box-shadow:var(--sh);transform:translateY(-5px)}
+    .scard.feature{background:var(--navy);border-color:var(--navy);grid-column:span 2}
+    @media(max-width:750px){.scard.feature{grid-column:span 1}}
+    .scard-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+    .sicon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--cr)}
+    .feature .sicon{background:rgba(255,255,255,0.05)}
+    .sbadge{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:20px;background:var(--sky-light);color:var(--sky);white-space:nowrap}
+    .feature .sbadge{background:rgba(56, 189, 248, 0.2);color:var(--sky)}
+    .scard-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;letter-spacing:-.01em}
+    .feature .scard-title{color:#fff}
+    .scard-desc{font-size:15px;color:var(--tm);line-height:1.7;font-weight:300}
+    .feature .scard-desc{color:rgba(255,255,255,0.7)}
+
+    /* Why Us / Expertise */
+    .why-bg{background:var(--cr)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    @media(max-width:900px){.why-grid{grid-template-columns:1fr;gap:50px}}
+    .why-img{border-radius:var(--r-lg);overflow:hidden;position:relative;box-shadow:var(--sh)}
+    .why-img img{width:100%;height:auto;display:block}
     
-    .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-    .sc{background:#fff;border-radius:16px;padding:50px;transition: 0.4s ease; border: 1px solid var(--bd);}
-    .sc:hover{transform: translateY(-8px); box-shadow: var(--sh); border-color: var(--sky);}
-    .si2{font-size:32px; margin-bottom:25px; display: block;}
-    .sct{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:15px}
-    .scd{font-size:16px;color:var(--tm);line-height:1.7;font-weight:300}
+    .why-list{display:flex;flex-direction:column;gap:30px;margin-top:40px}
+    .witem{display:flex;gap:20px;align-items:flex-start}
+    .wnum{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:var(--sky-light);color:var(--sky);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+    .wbody strong{display:block;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px}
+    .wbody p{font-size:15px;color:var(--tm);font-weight:300;line-height:1.6}
 
-    /* Sector Specifics - Elegant Layout */
-    .sector-sec{padding:120px 5%; background: #fff;}
-    .sector-grid{max-width:1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;}
-    .sector-img{width: 100%; border-radius: 20px; overflow: hidden; box-shadow: var(--sh);}
-    .sector-img img{width: 100%; display: block;}
+    /* Absent Owner Focus */
+    .absent-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center}
+    @media(max-width:900px){.absent-grid{grid-template-columns:1fr;gap:50px}}
+    .asteps{display:flex;flex-direction:column}
+    .astep{display:flex;gap:20px;align-items:flex-start;padding:25px 0;border-bottom:1px solid var(--bd)}
+    .astep:first-child{padding-top:0}
+    .astep:last-child{border-bottom:none}
+    .acirc{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:var(--white);border:2px solid var(--sky);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--sky)}
+    .abody strong{display:block;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px}
+    .abody p{font-size:15px;color:var(--tm);font-weight:300;line-height:1.6}
     
-    .sector-content h3{font-size: 38px; color: var(--navy); margin-bottom: 25px; font-weight: 700; letter-spacing: -1px;}
-    .sector-content p{font-size: 17px; color: var(--tm); line-height: 1.8; margin-bottom: 40px; font-weight: 300;}
+    .absent-panel{background:var(--navy);border-radius:24px;padding:45px;position:relative;overflow:hidden;box-shadow:var(--sh)}
+    .absent-panel::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(56, 189, 248, 0.1)}
+    .aptag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
+    .absent-panel h3{font-size:32px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:30px;letter-spacing:-1px;}
+    .plist{display:flex;flex-direction:column;gap:12px}
+    .pitem{display:flex;align-items:center;gap:15px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:15px 20px}
+    .pcheck{width:28px;height:28px;border-radius:8px;flex-shrink:0;background:rgba(56, 189, 248, 0.15);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--sky)}
+    .pitem span{font-size:15px;color:rgba(255,255,255,0.8);font-weight:300;}
+
+    /* Contact & Timetable */
+    .contact-section{background:var(--navy);padding:100px 5%}
+    .contact-inner{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    @media(max-width:900px){.contact-inner{grid-template-columns:1fr;gap:50px}}
+    .contact-section h2{color:#fff}
+    .contact-section .slead{color:rgba(255,255,255,0.6);margin-bottom:35px}
+    .bigwa{display:inline-flex;align-items:center;gap:12px;background:var(--wa);color:#fff;font-size:18px;font-weight:600;padding:18px 35px;border-radius:50px;text-decoration:none;box-shadow:0 6px 32px rgba(37,211,102,.3);transition:0.3s;margin-bottom:20px}
+    .bigwa:hover{background:var(--wa-dark);transform:translateY(-3px)}
+    .bigwa svg{width:24px;height:24px}
     
-    .work-box{margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--sky);}
-    .work-box h4{font-size: 19px; color: var(--navy); margin-bottom: 8px; font-weight: 600;}
-    .work-box p{font-size: 15px; margin-bottom: 0; color: var(--tm); font-weight: 300; line-height: 1.6;}
-
-    /* Luxury Contact Block */
-    .con{background:var(--navy);padding:120px 5%;color:#fff}
-    .cin{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:90px;align-items:center}
+    .cnote{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:35px;font-weight:300;}
+    .cdet{display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,.6);margin-bottom:12px;font-weight:300;}
+    .cdet strong{color:rgba(255,255,255,.9);font-weight:500;}
     
-    .cred-card{background: rgba(255,255,255,0.03); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px);}
-    .cred-card h4{font-size: 22px; color: #fff; margin-bottom: 30px; font-weight: 600;}
-    .cred-list{list-style: none;}
-    .cred-list li{margin-bottom: 20px; display: flex; align-items: center; gap: 15px; font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 300;}
-    .cred-list li::before{content: '✓'; color: var(--sky); font-size: 16px; font-weight: bold;}
+    .hbox{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;backdrop-filter:blur(10px)}
+    .hbox h4{font-size:22px;font-weight:600;color:#fff;margin-bottom:25px}
+    .hrow{display:flex;justify-content:space-between;font-size:15px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-weight:300;}
+    .hrow:last-of-type{border-bottom:none}
+    .hrow .day{color:rgba(255,255,255,0.5)}
+    .hrow .time{color:#fff;font-weight:500}
+    .ebox{margin-top:25px;padding:20px;background:rgba(56, 189, 248, 0.08);border:1px solid rgba(56, 189, 248, 0.2);border-radius:12px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6;font-weight:300;}
+    .ebox strong{color:var(--sky);font-weight:600;}
 
-    footer{background:#050A14;padding:40px 5%;text-align:center;border-top:1px solid rgba(255,255,255,0.05)}
-    footer p{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing: 2px; text-transform: uppercase; font-weight: 500;}
-
-    @media(max-width:1000px){
-        .sector-grid, .cin{grid-template-columns:1fr; gap: 60px;}
-        .sts{gap: 40px;}
-        h1{font-size: 46px;}
-        .logo-img {height: 70px;}
-        .hero-ctas {flex-direction: column;}
-        .btn-primary, .btn-secondary {text-align: center; width: 100%;}
+    /* Floating WhatsApp */
+    .float{position:fixed;bottom:30px;right:30px;z-index:300;display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;font-size:15px;font-weight:600;padding:15px 25px 15px 18px;border-radius:50px;text-decoration:none;box-shadow:0 8px 30px rgba(37,211,102,.4);animation:popin .6s 1.5s both cubic-bezier(.175,.885,.32,1.275);transition:0.3s}
+    .float:hover{transform:translateY(-3px) scale(1.02)}
+    .float svg{width:22px;height:22px}
+    @keyframes popin{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+    
+    @media(max-width:768px){
+      .nr .lang-selector { display: none; } /* Hide toggle on very small screens to save space */
+      .flbl{display:none}
+      .float{padding:16px;border-radius:50%;bottom:20px;right:20px;}
+    }
+    @media(max-width:640px){
+      .logo-img {height: 90px; transform: scale(1.2);}
+      .hero-stats{flex-direction:column}
+      .hstat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);padding:15px 0;margin:0}
+      .hstat:last-child{border-bottom:none}
     }
 </style>
 </head>
-<body>
+
+<body class="lang-en">
 
 <nav>
   <div class="ni">
@@ -114,9 +256,24 @@
       <img src="logo.png" alt="Ibiza Power & Climate Logo" class="logo-img">
     </a>
     <div class="nr">
+      
+      <div class="lang-selector" id="langSelector">
+        <div class="lang-current" onclick="toggleLangMenu(event)">
+          <span class="en"><img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" class="flag-icon"></span>
+          <span class="es"><img src="https://flagcdn.com/w40/es.png" alt="Spain Flag" class="flag-icon"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="lang-options">
+          <div onclick="setLanguage('en')"><img src="https://flagcdn.com/w40/gb.png" alt="UK" class="flag-icon"> English</div>
+          <div onclick="setLanguage('es')"><img src="https://flagcdn.com/w40/es.png" alt="Spain" class="flag-icon"> Español</div>
+        </div>
+      </div>
+      
       <a class="nw" href="https://wa.me/34000000000">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Contact WhatsApp
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="en">WhatsApp Contact</span><span class="es">Contactar</span>
       </a>
     </div>
   </div>
@@ -125,118 +282,357 @@
 <div class="hero">
   <div class="hbg"></div>
   <div class="hc">
-    <div class="pill">English &amp; Spanish Speaking Specialists</div>
-    <h1>Ibiza's Premier AC & Electrical Experts</h1>
-    <p class="hs">Delivering highly engineered climate control and electrical solutions. Precision service for luxury villas, residential apartments, and commercial premises across the island.</p>
+    <div class="pill">
+      <span class="en">English &amp; Spanish Speaking Specialists</span>
+      <span class="es">Especialistas bilingües (Inglés y Español)</span>
+    </div>
+    
+    <h1>
+      <span class="en">UK-Qualified Electrician &amp;<br><span>AC Specialist</span> in Ibiza.</span>
+      <span class="es">Electricista Cualificado (UK) &amp;<br><span>Especialista en AC</span> en Ibiza.</span>
+    </h1>
+    
+    <p class="hs">
+      <span class="en">Delivering highly engineered climate control and electrical solutions. Professional, reliable service for luxury villas, residential apartments, and commercial premises across the island.</span>
+      <span class="es">Ofrecemos soluciones eléctricas y de climatización de alta ingeniería. Servicio profesional y fiable para villas de lujo, apartamentos residenciales y locales comerciales en toda la isla.</span>
+    </p>
     
     <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Book a Consultation</a>
-        <a href="tel:+34000000000" class="btn-secondary">7-Day Emergency Call-Outs</a>
+      <a class="btn-primary" href="https://wa.me/34000000000">
+        <span class="en">WhatsApp us now</span><span class="es">Escríbanos por WhatsApp</span>
+      </a>
+      <a class="btn-secondary" href="#services">
+        <span class="en">Our services ↓</span><span class="es">Nuestros servicios ↓</span>
+      </a>
     </div>
-
-    <div class="sts">
-        <div class="st">
-            <div class="stn">Qualified</div>
-            <div class="stl">UK Electricians</div>
-        </div>
-        <div class="st">
-            <div class="stn">FGAS</div>
-            <div class="stl">Certified AC Engineers</div>
-        </div>
-        <div class="st">
-            <div class="stn">7 Days</div>
-            <div class="stl">Emergency Support</div>
-        </div>
+    
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">UK <span>✓</span></div><div class="hstat-l"><span class="en">Technician Grade</span><span class="es">Grado Técnico (UK)</span></div></div>
+      <div class="hstat"><div class="hstat-n">F<span>GAS</span></div><div class="hstat-l"><span class="en">Certified AC Engineers</span><span class="es">Técnicos Certificados</span></div></div>
+      <div class="hstat"><div class="hstat-n">&lt;1<span>hr</span></div><div class="hstat-l"><span class="en">WhatsApp Response</span><span class="es">Respuesta Rápida</span></div></div>
+      <div class="hstat"><div class="hstat-n">All<span> Ibiza</span></div><div class="hstat-l"><span class="en">Full Island Coverage</span><span class="es">Cobertura Total</span></div></div>
     </div>
   </div>
 </div>
 
-<section class="sec" id="services">
-    <div class="si">
-        <div class="tg">Our Expertise</div>
-        <h2>Power &amp; Climate Solutions</h2>
-        <div class="sg">
-            <div class="sc">
-                <span class="si2">❄️</span>
-                <div class="sct">AC Installations</div>
-                <div class="scd">Precision design and installation of energy-efficient systems. We specialize in discreet ducted and multi-split retrofitting for luxury interiors.</div>
-            </div>
-            <div class="sc">
-                <span class="si2">⚡</span>
-                <div class="sct">Electrical Works</div>
-                <div class="scd">From full property rewires to smart home integrations. Executed seamlessly to UK City &amp; Guilds standards by qualified electricians.</div>
-            </div>
-            <div class="sc">
-                <span class="si2">🛠️</span>
-                <div class="sct">PPM Maintenance</div>
-                <div class="scd">Planned preventative maintenance. Protect your systems from Balearic salt-air corrosion and ensure uninterrupted luxury all summer.</div>
-            </div>
-            <div class="sc" style="background:var(--navy); border-color:var(--navy);">
-                <span class="si2">🚨</span>
-                <div class="sct" style="color:#fff;">7-Day Emergency</div>
-                <div class="scd" style="color:rgba(255,255,255,0.7);">Rapid-response diagnostics available 7 days a week. We prioritize commercial breakdowns and urgent residential faults to minimize downtime.</div>
-            </div>
-        </div>
+<div class="section" id="services">
+  <div class="section-inner">
+    <div class="stag r">
+      <span class="en">Services</span><span class="es">Servicios</span>
     </div>
-</section>
+    
+    <h2 class="r">
+      <span class="en">Everything your property needs,<br>engineered properly.</span>
+      <span class="es">Todo lo que su propiedad necesita,<br>diseñado correctamente.</span>
+    </h2>
+    
+    <p class="slead r">
+      <span class="en">One qualified bilingual engineer for all electrical and air conditioning works — from an urgent power failure at midnight to a full luxury villa AC installation.</span>
+      <span class="es">Un ingeniero bilingüe cualificado para todos los trabajos eléctricos y de aire acondicionado — desde un fallo de energía urgente a medianoche hasta la instalación completa de AC en una villa de lujo.</span>
+    </p>
+    
+    <div class="services-grid">
+      <div class="scard feature r">
+        <div class="scard-top">
+          <div class="sicon">❄️</div>
+          <span class="sbadge"><span class="en">Most requested</span><span class="es">Más solicitado</span></span>
+        </div>
+        <div class="scard-title">
+          <span class="en">Air Conditioning — Supply, Install &amp; Service</span>
+          <span class="es">Aire Acondicionado — Instalación y Mantenimiento</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Full AC installation, annual servicing and fault repair. <strong>FGAS certified</strong> — legally certified to handle refrigerants, which the majority of tradespeople in Ibiza are not. Wall-mounted units, multi-splits and full invisible ducted systems for villas of any size. Pre-season checks available for absent owners.</span>
+          <span class="es">Instalación completa de AC, mantenimiento anual y reparación de averías. <strong>Certificación FGAS</strong> — autorizados legalmente para manipular gases refrigerantes. Unidades de pared, multi-splits y sistemas de conductos invisibles para villas de cualquier tamaño.</span>
+        </p>
+      </div>
+      
+      <div class="scard r d1">
+        <div class="scard-top">
+          <div class="sicon">🚨</div>
+          <span class="sbadge"><span class="en">Priority</span><span class="es">Prioridad</span></span>
+        </div>
+        <div class="scard-title">
+          <span class="en">Emergency Call-Outs</span><span class="es">Avisos de Emergencia</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Live fault, complete power failure, or a commercial kitchen breakdown. Message us now — we prioritize genuine emergencies across the whole island, 7 days a week.</span>
+          <span class="es">Fallos en curso, cortes de energía totales o averías en cocinas comerciales. Escríbanos ahora — damos prioridad a las emergencias genuinas en toda la isla, los 7 días de la semana.</span>
+        </p>
+      </div>
+      
+      <div class="scard r d2">
+        <div class="scard-top"><div class="sicon">🔍</div></div>
+        <div class="scard-title">
+          <span class="en">Fault Finding</span><span class="es">Detección de Averías</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Tripping circuits, intermittent faults, or unexplained power cuts. We use a UK-trained systematic diagnostic approach to find the actual root cause, not just reset the breaker.</span>
+          <span class="es">Cortocircuitos, fallos intermitentes o cortes de luz inexplicables. Utilizamos un enfoque de diagnóstico sistemático para encontrar la causa raíz real, no solo para reactivar el diferencial.</span>
+        </p>
+      </div>
+      
+      <div class="scard r">
+        <div class="scard-top"><div class="sicon">🔌</div></div>
+        <div class="scard-title">
+          <span class="en">Rewires &amp; Installations</span><span class="es">Instalaciones y Cableado</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Full and partial property rewires, consumer unit upgrades, additional circuits, smart home integration, and architectural lighting for villas, pools, and terraces.</span>
+          <span class="es">Recableado total y parcial de propiedades, actualizaciones de cuadros eléctricos, circuitos adicionales, integración de domótica e iluminación arquitectónica para villas y terrazas.</span>
+        </p>
+      </div>
+      
+      <div class="scard r d1">
+        <div class="scard-top"><div class="sicon">📋</div></div>
+        <div class="scard-title">
+          <span class="en">Safety Inspections</span><span class="es">Inspecciones de Seguridad</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Pre-purchase electrical reports for prospective buyers, pre-rental season compliance checks, and written condition reports to UK standards.</span>
+          <span class="es">Informes eléctricos previos a la compra para futuros propietarios, controles de cumplimiento de seguridad previos a la temporada de alquiler e informes de estado por escrito.</span>
+        </p>
+      </div>
+      
+      <div class="scard r d2">
+        <div class="scard-top">
+          <div class="sicon">✈️</div>
+          <span class="sbadge"><span class="en">Absent owners</span><span class="es">Propietarios Ausentes</span></span>
+        </div>
+        <div class="scard-title">
+          <span class="en">Absent Owner Service</span><span class="es">Gestión a Distancia</span>
+        </div>
+        <p class="scard-desc">
+          <span class="en">Based abroad with a property in Ibiza? We attend, fix the problem, and send you a detailed WhatsApp photo report the same day. No chasing, no uncertainty.</span>
+          <span class="es">¿Reside en el extranjero pero tiene una propiedad en Ibiza? Asistimos, solucionamos el problema y le enviamos un informe detallado con fotos por WhatsApp el mismo día.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<section class="sector-sec">
-    <div class="sector-grid">
-        <div class="sector-content">
-            <div class="tg">Island Coverage</div>
-            <h3>Villas, Apartments &amp; Commercial</h3>
-            <p>Our bilingual team communicates clearly in English and Spanish, ensuring seamless coordination with property owners, project managers, and local authorities across Ibiza.</p>
-            
-            <div class="work-box">
-                <h4>Private Villas</h4>
-                <p>Complete climate infrastructure, smart home integration, and architectural lighting for traditional fincas and high-end modern estates.</p>
-            </div>
-            <div class="work-box">
-                <h4>Luxury Apartments</h4>
-                <p>Specialist AC retrofitting, fault-finding, and safe urban power upgrades for premium residences in Marina Botafoch and Ibiza Town.</p>
-            </div>
-            <div class="work-box">
-                <h4>Commercial Premises</h4>
-                <p>Reliable maintenance contracts and emergency electrical or refrigeration support for the island's premier restaurants, beach clubs, and retail units.</p>
-            </div>
+<div class="section why-bg">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-img r">
+        <img src="shic81.png" alt="Ibiza Electrical Service" loading="lazy">
+      </div>
+      <div>
+        <div class="stag r">
+          <span class="en">Why choose us</span><span class="es">Por qué elegirnos</span>
         </div>
-        <div class="sector-img">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Ibiza Luxury Property">
+        <h2 class="r">
+          <span class="en">The professional engineering<br>standard you expect.</span>
+          <span class="es">El estándar de ingeniería<br>profesional que usted espera.</span>
+        </h2>
+        <p class="slead r" style="margin-bottom:0">
+          <span class="en">Your alternatives are handymen and language barriers. We are UK-trained, bilingual professionals who arrive on time, communicate clearly, and execute perfectly.</span>
+          <span class="es">Sus alternativas son personal no cualificado y barreras lingüísticas. Somos profesionales bilingües formados en Reino Unido que llegan a tiempo, se comunican claramente y ejecutan a la perfección.</span>
+        </p>
+        <div class="why-list">
+          <div class="witem r">
+            <div class="wnum">01</div>
+            <div class="wbody">
+              <strong><span class="en">Technician Grade</span><span class="es">Alta Cualificación</span></strong>
+              <p><span class="en">City &amp; Guilds trained to the absolute top tier of the UK qualification framework, above standard domestic levels.</span><span class="es">Formación City &amp; Guilds en el nivel más alto del marco de cualificaciones del Reino Unido, superior a los niveles domésticos estándar.</span></p>
+            </div>
+          </div>
+          <div class="witem r d1">
+            <div class="wnum">02</div>
+            <div class="wbody">
+              <strong><span class="en">FGAS Certified</span><span class="es">Certificación FGAS</span></strong>
+              <p><span class="en">Legally required to handle refrigerants and install AC. The vast majority of tradespeople in Ibiza do not hold this license.</span><span class="es">Obligatorio por ley para manipular refrigerantes e instalar AC. La gran mayoría de los técnicos en Ibiza no poseen esta licencia.</span></p>
+            </div>
+          </div>
+          <div class="witem r d2">
+            <div class="wnum">03</div>
+            <div class="wbody">
+              <strong><span class="en">Fixed Written Quotes</span><span class="es">Presupuestos Fijos</span></strong>
+              <p><span class="en">You receive a fixed quote via WhatsApp before we start any major work. What we quote is what you pay.</span><span class="es">Usted recibe un presupuesto fijo por WhatsApp antes de comenzar cualquier trabajo importante. Lo que presupuestamos es lo que paga.</span></p>
+            </div>
+          </div>
+          <div class="witem r d3">
+            <div class="wnum">04</div>
+            <div class="wbody">
+              <strong><span class="en">We Show Up</span><span class="es">Puntualidad Absoluta</span></strong>
+              <p><span class="en">The most common complaint in Ibiza. We respond within the hour and arrive at the agreed time, every single time.</span><span class="es">La queja más común en Ibiza. Respondemos en menos de una hora y llegamos a la hora acordada, siempre.</span></p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 
-<section class="con" id="contact">
-    <div class="cin">
-        <div>
-            <div class="tg" style="color:var(--sky);">Get In Touch</div>
-            <h2 style="color: #fff; margin-bottom: 25px;">Contact Our Engineers</h2>
-            <p class="hs" style="color: rgba(255,255,255,0.7); max-width: 500px;">Resident on the island and available for scheduled works, bespoke project design, or 7-day emergency attendance across Ibiza.</p>
-            
-            <div style="margin-top: 40px;">
-                <a href="https://wa.me/34000000000" class="btn-primary" style="background: var(--wa); color: #fff; display: inline-flex; align-items: center; gap: 10px; border: none;">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Message on WhatsApp
-                </a>
+<div class="section" id="absent">
+  <div class="section-inner">
+    <div class="absent-grid">
+      <div>
+        <div class="stag r">
+          <span class="en">For absent property owners</span><span class="es">Para propietarios ausentes</span>
+        </div>
+        <h2 class="r">
+          <span class="en">Your villa is in Ibiza.<br>You're anywhere else.</span>
+          <span class="es">Su villa está en Ibiza.<br>Usted está en otro lugar.</span>
+        </h2>
+        <p class="slead r" style="margin-bottom:0">
+          <span class="en">We work directly with international property owners and project managers based abroad every week. Here is exactly how it works.</span>
+          <span class="es">Trabajamos directamente con propietarios internacionales y gestores de proyectos en el extranjero cada semana. Así es exactamente como funciona.</span>
+        </p>
+        <div class="asteps">
+          <div class="astep r">
+            <div class="acirc">1</div>
+            <div class="abody">
+              <strong><span class="en">Message us on WhatsApp</span><span class="es">Escríbanos por WhatsApp</span></strong>
+              <p><span class="en">Describe the issue from wherever you are. We respond the same day with a clear technical plan and a fixed price.</span><span class="es">Describa el problema desde donde esté. Respondemos el mismo día con un plan técnico claro y un precio fijo.</span></p>
             </div>
+          </div>
+          <div class="astep r">
+            <div class="acirc">2</div>
+            <div class="abody">
+              <strong><span class="en">We attend and execute</span><span class="es">Asistimos y ejecutamos</span></strong>
+              <p><span class="en">We access the property, carry out the engineering work, and keep you or your villa manager informed throughout.</span><span class="es">Accedemos a la propiedad, realizamos el trabajo y le mantenemos informado en todo momento.</span></p>
+            </div>
+          </div>
+          <div class="astep r">
+            <div class="acirc">3</div>
+            <div class="abody">
+              <strong><span class="en">Direct photo reporting</span><span class="es">Reporte directo con fotos</span></strong>
+              <p><span class="en">Completion photos and a plain English explanation of what was resolved, sent directly to your phone the same day.</span><span class="es">Fotos del trabajo terminado y una explicación clara de lo resuelto, enviadas directamente a su teléfono el mismo día.</span></p>
+            </div>
+          </div>
         </div>
-        
-        <div class="cred-card">
-            <h4>Professional Credentials</h4>
-            <ul class="cred-list">
-                <li>UK-Qualified Electrician</li>
-                <li>FGAS-Certified AC Specialist</li>
-                <li>English and Spanish Speaking</li>
-                <li>7-Day Emergency Call-Outs</li>
-                <li>Fully Insured &amp; Compliant</li>
-            </ul>
+      </div>
+      <div class="absent-panel r">
+        <div class="aptag">
+          <span class="en">Every job, without exception</span><span class="es">En cada trabajo, sin excepción</span>
         </div>
+        <h3>
+          <span class="en">Our professional<br>promise to you.</span>
+          <span class="es">Nuestro compromiso<br>profesional.</span>
+        </h3>
+        <div class="plist">
+          <div class="pitem"><div class="pcheck">⚡</div><span><span class="en">WhatsApp response within 1 hour</span><span class="es">Respuesta por WhatsApp en 1 hora</span></span></div>
+          <div class="pitem"><div class="pcheck">📝</div><span><span class="en">Written technical quote before work</span><span class="es">Presupuesto técnico antes de empezar</span></span></div>
+          <div class="pitem"><div class="pcheck">🕐</div><span><span class="en">Punctual arrival at the agreed time</span><span class="es">Llegada puntual a la hora acordada</span></span></div>
+          <div class="pitem"><div class="pcheck">📸</div><span><span class="en">Photographic update on completion</span><span class="es">Reporte fotográfico al finalizar</span></span></div>
+          <div class="pitem"><div class="pcheck">💬</div><span><span class="en">Clear, bilingual communication</span><span class="es">Comunicación clara y bilingüe</span></span></div>
+          <div class="pitem"><div class="pcheck">🛡️</div><span><span class="en">Fully insured and legally compliant</span><span class="es">Totalmente asegurado y legal</span></span></div>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
+
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="stag r">
+        <span class="en">Get in touch</span><span class="es">Contáctenos</span>
+      </div>
+      <h2 class="r">
+        <span class="en">Ready to help.<br>Message us now.</span>
+        <span class="es">Listos para ayudar.<br>Escríbanos ahora.</span>
+      </h2>
+      <p class="slead r">
+        <span class="en">WhatsApp is the fastest way to reach us. We reply to every message the same day — usually within the hour.</span>
+        <span class="es">WhatsApp es la forma más rápida de contactarnos. Respondemos a todos los mensajes el mismo día — normalmente en menos de una hora.</span>
+      </p>
+      
+      <a class="bigwa r" href="https://wa.me/34000000000">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="en">Open WhatsApp</span><span class="es">Abrir WhatsApp</span>
+      </a>
+      
+      <p class="cnote r">
+        <span class="en">We reply to every single message</span><span class="es">Respondemos a todos los mensajes</span>
+      </p>
+      <div class="cdet r">📍 <span><span class="en">Covering <strong>all of Ibiza & Formentera</strong></span><span class="es">Cubriendo <strong>toda Ibiza y Formentera</strong></span></span></div>
+      <div class="cdet r">🌐 <span><span class="en">English &amp; Spanish speaking — <strong>always</strong></span><span class="es">Hablamos inglés y español — <strong>siempre</strong></span></span></div>
+    </div>
+    
+    <div class="hbox r">
+      <h4><span class="en">Availability</span><span class="es">Disponibilidad</span></h4>
+      <div class="hrow">
+        <span class="day"><span class="en">Monday – Friday</span><span class="es">Lunes – Viernes</span></span>
+        <span class="time">8:00am – 6:00pm</span>
+      </div>
+      <div class="hrow">
+        <span class="day"><span class="en">Saturday</span><span class="es">Sábado</span></span>
+        <span class="time">9:00am – 2:00pm</span>
+      </div>
+      <div class="hrow">
+        <span class="day"><span class="en">Sunday</span><span class="es">Domingo</span></span>
+        <span class="time"><span class="en">Emergencies only</span><span class="es">Solo emergencias</span></span>
+      </div>
+      <div class="hrow">
+        <span class="day"><span class="en">WhatsApp response</span><span class="es">Respuesta WhatsApp</span></span>
+        <span class="time"><span class="en">Within 1 hour</span><span class="es">En 1 hora</span></span>
+      </div>
+      <div class="hrow">
+        <span class="day"><span class="en">Quote turnaround</span><span class="es">Entrega de presupuesto</span></span>
+        <span class="time"><span class="en">Same day</span><span class="es">El mismo día</span></span>
+      </div>
+      
+      <div class="ebox">
+        <span class="en"><strong>Live electrical fault or AC failure?</strong> Message us immediately — we prioritize genuine emergencies regardless of the time or day to protect your property and guests.</span>
+        <span class="es"><strong>¿Fallo eléctrico o de AC en curso?</strong> Escríbanos inmediatamente — damos prioridad a las verdaderas emergencias sin importar la hora o el día para proteger su propiedad.</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
-    <p>Ibiza Power &amp; Climate • Electrician &amp; AC Specialist • © 2026</p>
+  <p>
+    <span class="en">© 2026 Ibiza Power & Climate · All of Ibiza · English &amp; Spanish speaking</span>
+    <span class="es">© 2026 Ibiza Power & Climate · Toda Ibiza · Hablamos Inglés y Español</span>
+  </p>
+  <div class="fcreds">
+    <span class="fcred">City &amp; Guilds</span>
+    <span class="fcred"><span class="en">Technician Grade</span><span class="es">Grado Técnico</span></span>
+    <span class="fcred">FGAS Certified</span>
+  </div>
 </footer>
+
+<a class="float" href="https://wa.me/34000000000">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span class="flbl"><span class="en">WhatsApp us</span><span class="es">Contáctanos</span></span>
+</a>
+
+<script>
+// Logic to handle opening/closing the language dropdown
+function toggleLangMenu(event) {
+    event.stopPropagation();
+    document.getElementById('langSelector').classList.toggle('open');
+}
+
+// Logic to switch the active language
+function setLanguage(lang) {
+    const body = document.body;
+    body.classList.remove('lang-en', 'lang-es');
+    body.classList.add('lang-' + lang);
+    document.getElementById('langSelector').classList.remove('open');
+}
+
+// Close dropdown if user clicks anywhere else on the page
+document.addEventListener('click', function(event) {
+    const selector = document.getElementById('langSelector');
+    if (selector.classList.contains('open') && !selector.contains(event.target)) {
+        selector.classList.remove('open');
+    }
+});
+
+// Intersection Observer for scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { 
+    if (e.isIntersecting) { 
+      e.target.classList.add('v'); 
+      obs.unobserve(e.target); 
+    } 
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+</script>
 
 </body>
 </html>

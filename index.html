@@ -138,7 +138,7 @@
     .hero-ctas {display: flex; gap: 15px; flex-wrap: wrap;}
     .btn-primary {background: var(--sky); color: var(--navy); padding: 16px 35px; border-radius: 100px; font-weight: 700; font-size: 16px; text-decoration: none; transition: 0.3s;}
     .btn-primary:hover {background: #fff; transform: translateY(-2px);}
-    .btn-secondary {background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 35px; border-radius: 100px; font-weight: 600; font-size: 16px; text-decoration: none; transition: 0.3s;}
+    .btn-secondary {background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 35px; border-radius: 100px; font-weight: 600; font-size: 16px; text-decoration: none; transition: 0.3s; cursor: pointer;}
     .btn-secondary:hover {background: rgba(255,255,255,0.1); border-color: #fff;}
 
     .hero-stats{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.15);padding-top:35px;margin-top:50px;}
@@ -150,7 +150,7 @@
 
     /* CREDENTIALS STRIP */
     .credentials-strip {
-        background: #081121; /* Dark navy to match the screenshot */
+        background: #081121;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         padding: 24px 5%;
     }
@@ -252,8 +252,21 @@
     .why-bg{background:var(--cr)}
     .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
     @media(max-width:900px){.why-grid{grid-template-columns:1fr;gap:50px}}
-    .why-img{border-radius:var(--r-lg);overflow:hidden;position:relative;box-shadow:var(--sh)}
-    .why-img img{width:100%;height:auto;display:block}
+    
+    /* NEW STACKED IMAGES STYLING */
+    .why-images {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-self: start;
+    }
+    .why-images img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--r-lg);
+        box-shadow: var(--sh);
+    }
     
     .why-list{display:flex;flex-direction:column;gap:30px;margin-top:40px}
     .witem{display:flex;gap:20px;align-items:flex-start}
@@ -310,6 +323,45 @@
     .float svg{width:22px;height:22px}
     @keyframes popin{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
     
+    /* CALLBACK MODAL STYLES */
+    .modal-overlay {
+        position: fixed; inset: 0; background: rgba(10, 20, 40, 0.8); z-index: 9999;
+        display: flex; align-items: center; justify-content: center; padding: 20px;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease; backdrop-filter: blur(5px);
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-content {
+        background: #fff; border-radius: 24px; padding: 40px; width: 100%; max-width: 500px;
+        position: relative; transform: translateY(20px); transition: transform 0.3s ease;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+    .modal-close {
+        position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.05); border: none;
+        width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center;
+        justify-content: center; cursor: pointer; transition: 0.2s; color: var(--tx);
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.1); }
+    .modal-title { font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.5px;}
+    .modal-sub { font-size: 15px; color: var(--tm); margin-bottom: 25px; font-weight: 300; line-height: 1.5;}
+    .fm-group { margin-bottom: 18px; }
+    .fm-label { display: block; font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;}
+    .fm-input, .fm-textarea {
+        width: 100%; padding: 14px 16px; border: 1px solid var(--bd); border-radius: 12px;
+        font-family: inherit; font-size: 15px; color: var(--tx); background: var(--cr); transition: 0.3s;
+    }
+    .fm-input:focus, .fm-textarea:focus {
+        outline: none; border-color: var(--sky); background: #fff; box-shadow: 0 0 0 4px var(--sky-light);
+    }
+    .fm-textarea { resize: vertical; min-height: 100px; }
+    .fm-submit {
+        width: 100%; background: var(--navy); color: #fff; border: none; padding: 16px;
+        border-radius: 100px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s;
+        margin-top: 10px;
+    }
+    .fm-submit:hover { background: var(--sky); color: var(--navy); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); }
+    @media(max-width: 640px){ .modal-content { padding: 30px 20px; } }
+
     @media(max-width:950px){
         .credentials-inner {
             flex-direction: column;
@@ -337,7 +389,7 @@
 <nav>
   <div class="ni">
     <a class="lg" href="#">
-      <img src="logo.png" alt="Ibiza Power & Climate Logo" class="logo-img">
+      <img src="logo.png" alt="Be Cool Ibiza Logo" class="logo-img">
     </a>
     <div class="nr">
       
@@ -385,8 +437,9 @@
       <a class="btn-primary" href="https://wa.me/34000000000">
         <span class="en">WhatsApp us now</span><span class="es">Escríbanos por WhatsApp</span>
       </a>
-      <a class="btn-secondary" href="#services">
-        <span class="en">Our services ↓</span><span class="es">Nuestros servicios ↓</span>
+      
+      <a class="btn-secondary" href="#" onclick="openModal(event)">
+        <span class="en">Request a Call Back</span><span class="es">Solicitar Presupuesto</span>
       </a>
     </div>
     
@@ -558,9 +611,12 @@
 <div class="section why-bg">
   <div class="section-inner">
     <div class="why-grid">
-      <div class="why-img r">
-        <img src="shic81.png" alt="Ibiza Electrical Service" loading="lazy">
+      
+      <div class="why-images r">
+        <img src="Gemini_Generated_Image_c1wh2rc1wh2rc1wh.png" alt="Be Cool Ibiza Van and Worker ready to begin electrical and AC work in Ibiza" loading="lazy">
+        <img src="shic81.png" alt="UK Trained Electrician" loading="lazy">
       </div>
+      
       <div>
         <div class="stag r">
           <span class="en">Why choose us</span><span class="es">Por qué elegirnos</span>
@@ -743,14 +799,50 @@
   <span class="flbl"><span class="en">WhatsApp us</span><span class="es">Contáctanos</span></span>
 </a>
 
+<div class="modal-overlay" id="callbackModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event)">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-title">
+      <span class="en">Request a Call Back</span><span class="es">Solicitar una Llamada</span>
+    </div>
+    <div class="modal-sub">
+      <span class="en">Leave your details and our lead engineer will contact you shortly to discuss your property.</span>
+      <span class="es">Deje sus datos y nuestro ingeniero principal le contactará en breve para evaluar su propiedad.</span>
+    </div>
+    
+    <form onsubmit="submitForm(event)">
+      <div class="fm-group">
+        <label class="fm-label"><span class="en">Full Name</span><span class="es">Nombre Completo</span></label>
+        <input type="text" class="fm-input" required>
+      </div>
+      <div class="fm-group">
+        <label class="fm-label"><span class="en">Phone Number</span><span class="es">Teléfono</span></label>
+        <input type="tel" class="fm-input" required>
+      </div>
+      <div class="fm-group">
+        <label class="fm-label"><span class="en">Email Address</span><span class="es">Correo Electrónico</span></label>
+        <input type="email" class="fm-input" required>
+      </div>
+      <div class="fm-group">
+        <label class="fm-label"><span class="en">How can we help?</span><span class="es">¿Cómo podemos ayudarle?</span></label>
+        <textarea class="fm-textarea" placeholder="..." required></textarea>
+      </div>
+      <button type="submit" class="fm-submit">
+        <span class="en">Send Request</span><span class="es">Enviar Solicitud</span>
+      </button>
+    </form>
+  </div>
+</div>
+
 <script>
-// Logic to handle opening/closing the language dropdown
+// Language Dropdown Logic
 function toggleLangMenu(event) {
     event.stopPropagation();
     document.getElementById('langSelector').classList.toggle('open');
 }
 
-// Logic to switch the active language
 function setLanguage(lang) {
     const body = document.body;
     body.classList.remove('lang-en', 'lang-es');
@@ -758,15 +850,14 @@ function setLanguage(lang) {
     document.getElementById('langSelector').classList.remove('open');
 }
 
-// Close dropdown if user clicks anywhere else on the page
 document.addEventListener('click', function(event) {
     const selector = document.getElementById('langSelector');
-    if (selector.classList.contains('open') && !selector.contains(event.target)) {
+    if (selector && selector.classList.contains('open') && !selector.contains(event.target)) {
         selector.classList.remove('open');
     }
 });
 
-// Intersection Observer for scroll animations
+// Scroll Animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { 
     if (e.isIntersecting) { 
@@ -776,6 +867,30 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// Callback Modal Logic
+function openModal(e) {
+    e.preventDefault();
+    document.getElementById('callbackModal').classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeModal(e) {
+    if(e) e.preventDefault();
+    document.getElementById('callbackModal').classList.remove('active');
+    document.body.style.overflow = ''; 
+}
+
+function submitForm(e) {
+    e.preventDefault(); 
+    const isEn = document.body.classList.contains('lang-en');
+    
+    // Test alert - swap this logic out when you link to a real email handler like Formspree
+    alert(isEn ? "Thank you! Your request has been sent successfully. We will be in touch shortly." : "¡Gracias! Su solicitud ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.");
+    
+    closeModal(); 
+    e.target.reset(); 
+}
 </script>
 
 </body>

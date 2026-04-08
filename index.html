@@ -371,8 +371,16 @@
         }
     }
     
-    @media(max-width:768px){
-      .nr .lang-selector { display: none; }
+   @media(max-width:768px){
+      /* Make language selector visible and compact for mobile */
+      .lang-selector { margin-right: 10px; }
+      .lang-current { padding: 8px 10px; gap: 4px; }
+      
+      /* Hide the text in the top WhatsApp button so everything fits nicely */
+      .nw span { display: none !important; }
+      .nw { padding: 12px; }
+      
+      /* Floating button mobile styles */
       .flbl{display:none}
       .float{padding:16px;border-radius:50%;bottom:20px;right:20px;}
     }

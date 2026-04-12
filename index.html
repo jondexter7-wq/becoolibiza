@@ -821,22 +821,22 @@
       <span class="es">Deje sus datos y nuestro ingeniero principal le contactará en breve para evaluar su propiedad.</span>
     </div>
     
-    <form onsubmit="submitForm(event)">
+   <form action="https://formspree.io/f/xzdyprwy" method="POST">
       <div class="fm-group">
         <label class="fm-label"><span class="en">Full Name</span><span class="es">Nombre Completo</span></label>
-        <input type="text" class="fm-input" required>
+        <input type="text" name="name" class="fm-input" required>
       </div>
       <div class="fm-group">
         <label class="fm-label"><span class="en">Phone Number</span><span class="es">Teléfono</span></label>
-        <input type="tel" class="fm-input" required>
+        <input type="tel" name="phone" class="fm-input" required>
       </div>
       <div class="fm-group">
         <label class="fm-label"><span class="en">Email Address</span><span class="es">Correo Electrónico</span></label>
-        <input type="email" class="fm-input" required>
+        <input type="email" name="_replyto" class="fm-input" required>
       </div>
       <div class="fm-group">
         <label class="fm-label"><span class="en">How can we help?</span><span class="es">¿Cómo podemos ayudarle?</span></label>
-        <textarea class="fm-textarea" placeholder="..." required></textarea>
+        <textarea name="message" class="fm-textarea" placeholder="..." required></textarea>
       </div>
       <button type="submit" class="fm-submit">
         <span class="en">Send Request</span><span class="es">Enviar Solicitud</span>

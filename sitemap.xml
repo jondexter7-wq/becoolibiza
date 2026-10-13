@@ -3,16 +3,86 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.becoolibiza.com/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/"/>
   </url>
   <url>
     <loc>https://www.becoolibiza.com/es/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/air-conditioning-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/air-conditioning-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/aire-acondicionado-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/air-conditioning-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/es/aire-acondicionado-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/air-conditioning-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/aire-acondicionado-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/air-conditioning-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/electrician-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/electrician-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/electricista-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/electrician-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/es/electricista-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/electrician-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/electricista-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/electrician-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/emergency-electrician-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/emergency-electrician-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/electricista-urgente-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/emergency-electrician-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/es/electricista-urgente-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/emergency-electrician-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/electricista-urgente-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/emergency-electrician-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/villa-maintenance-absent-owners/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/villa-maintenance-absent-owners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/mantenimiento-villas-propietarios-ausentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/villa-maintenance-absent-owners/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/es/mantenimiento-villas-propietarios-ausentes/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/villa-maintenance-absent-owners/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/mantenimiento-villas-propietarios-ausentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/villa-maintenance-absent-owners/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/electrical-inspection-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/electrical-inspection-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/inspeccion-electrica-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/electrical-inspection-ibiza/"/>
+  </url>
+  <url>
+    <loc>https://www.becoolibiza.com/es/inspeccion-electrica-ibiza/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becoolibiza.com/electrical-inspection-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.becoolibiza.com/es/inspeccion-electrica-ibiza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.becoolibiza.com/electrical-inspection-ibiza/"/>
   </url>
 </urlset>

@@ -384,6 +384,11 @@
     .fservices{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;margin:14px 0}
     .fservices a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px}
     .fservices a:hover{color:var(--sky)}
+    /* header height offset + headline colours */
+    .hero{margin-top:154px}
+    h1 > span.en, h1 > span.es{color:#fff}
+    h1 > span.en > span, h1 > span.es > span{color:var(--sky)}
+    @media(max-width:640px){.hero{margin-top:114px}}
 
 /* ===== Service pages ===== */
 :root{--white:#fff;--link:#0284C7}

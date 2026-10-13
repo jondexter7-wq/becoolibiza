@@ -400,6 +400,11 @@
     .fservices{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px;margin:14px 0}
     .fservices a{color:rgba(255,255,255,.75);text-decoration:none;font-size:14px}
     .fservices a:hover{color:var(--sky)}
+    /* header height offset + headline colours */
+    .hero{margin-top:154px}
+    h1 > span.en, h1 > span.es{color:#fff}
+    h1 > span.en > span, h1 > span.es > span{color:var(--sky)}
+    @media(max-width:640px){.hero{margin-top:114px}}
 </style>
 <script type="application/ld+json">
 {
@@ -847,13 +852,13 @@
     <span class="fcred"><span class="es">Grado Técnico</span></span>
     <span class="fcred">FGAS Certified</span>
   </div>
-  <nav class="fservices" aria-label="Services">
+  <div class="fservices" role="navigation" aria-label="Services">
     <a href="aire-acondicionado-ibiza/">Aire acondicionado</a>
     <a href="electricista-ibiza/">Electricista</a>
     <a href="electricista-urgente-ibiza/">Urgencias</a>
     <a href="mantenimiento-villas-propietarios-ausentes/">Propietarios ausentes</a>
     <a href="inspeccion-electrica-ibiza/">Inspecciones eléctricas</a>
-  </nav>
+  </div>
 </footer>
 
 <a class="float" href="https://wa.me/34637157722">
